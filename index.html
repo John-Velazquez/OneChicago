@@ -108,7 +108,11 @@ button{cursor:pointer;font-weight:700;transition:transform .15s ease, background
 button:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
 label{display:inline-flex;align-items:center;gap:8px;color:#eef4ff}
 .listing{margin:0;padding:0;list-style:none;border-radius:22px;overflow:hidden;background:rgba(8,18,32,.56);box-shadow:var(--shadow)}
-.ep{display:grid;grid-template-columns:72px 36px 92px 82px 1fr;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06);padding:12px 14px;font-size:14px;transition:transform .15s ease, background .15s ease, border-color .15s ease;position:relative}
+.ep{display:grid;grid-template-columns:58px 30px 76px 76px minmax(0,1fr) 112px;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06);padding:12px 14px;font-size:14px;transition:transform .15s ease, background .15s ease, border-color .15s ease;position:relative}
+.air-date{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);font-size:12px;text-align:right}
+.ep-head{display:grid;grid-template-columns:58px 30px 76px 76px minmax(0,1fr) 112px;gap:10px;padding:12px 14px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.ep-head span:last-child{text-align:right}
+@media(max-width:680px){.ep-head{grid-template-columns:30px 24px 43px 52px minmax(0,1fr) 76px;gap:5px;padding:10px 8px}.air-date{font-size:10px}}
 .ep:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
 .ep::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:rgba(255,255,255,.08)}
 .ep[data-series="Fire"]{background:linear-gradient(90deg,rgba(255,122,79,.12),rgba(255,122,79,.03) 32%,rgba(255,255,255,.03))}
@@ -135,7 +139,7 @@ small{color:#714e00}
 input[type="checkbox"]{width:18px;height:18px;accent-color:#8ac5ff}
 .footer-note{margin-top:16px;color:var(--muted);font-size:13px;text-align:center}
 @media(max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:680px){body{margin:14px auto;padding:0 10px 24px}.hero-copy{left:16px;right:16px;bottom:16px}.hero-badge{padding:8px 10px}.hero-badge img{width:46px;height:46px;border-radius:13px}.intro{padding:15px 15px 4px}.stats{grid-template-columns:1fr 1fr;padding:10px}.stat{padding:12px}.bar{top:6px;padding:10px}.ep{grid-template-columns:46px 26px 58px 64px 1fr;gap:5px;padding:10px 8px;font-size:12px}.ep.crossover::after{display:none}.cf,.pd,.cm,.svu{min-width:40px;padding:5px 8px}input[type=search]{min-width:unset;width:100%}}
+@media(max-width:680px){body{margin:14px auto;padding:0 10px 24px}.hero-copy{left:16px;right:16px;bottom:16px}.hero-badge{padding:8px 10px}.hero-badge img{width:46px;height:46px;border-radius:13px}.intro{padding:15px 15px 4px}.stats{grid-template-columns:1fr 1fr;padding:10px}.stat{padding:12px}.bar{top:6px;padding:10px}.ep{grid-template-columns:30px 24px 43px 52px minmax(0,1fr) 76px;gap:5px;padding:10px 8px;font-size:12px}.ep.crossover::after{display:none}.cf,.pd,.cm,.svu{min-width:40px;padding:5px 8px}input[type=search]{min-width:unset;width:100%}}
 @media print{html,body{background:white;color:#111}.hero,.stats,.legend,.bar{display:none}.intro{box-shadow:none;border:1px solid #ccc;background:white;color:#111}.listing{border:1px solid #ccc;box-shadow:none;background:white}.ep{break-inside:avoid;padding:4px 6px;background:white !important;color:#111}.ep::before,.ep::after{display:none}.ord,.code{color:#111}.footer-note{display:none}}
 </style></head><body><header class="hero">
 <img class="hero-banner" src="assets/one-chicago-banner.jpg" alt="One Chicago promotional banner">
@@ -962,6 +966,10 @@ const key='chicagoWatchOrder2026';
 let done={};try{done=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
 let items=[...document.querySelectorAll('.ep')];
 const list=document.getElementById('episodes'), progress=document.getElementById('progress');
+const head=document.createElement('div');head.className='ep-head';head.innerHTML='<span>#</span><span></span><span>Show</span><span>Episode</span><span>Title</span><span>Air date</span>';list.before(head);
+const displayAirDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')?value.slice(5,7)+'/'+value.slice(8,10)+'/'+value.slice(0,4):'—';
+for(const row of items){const cell=document.createElement('span');cell.className='air-date';cell.textContent='—';row.appendChild(cell);}
+
 const escapeHTML=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function render(){
  const q=document.getElementById('search').value.trim().toLowerCase(),series=document.getElementById('series').value,cross=document.getElementById('onlyCross').checked;
@@ -984,6 +992,13 @@ render();
 fetch('./data/episodes.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Episode feed unavailable');return r.json();}).then(data=>{
  const episodes=Array.isArray(data)?data:(data.episodes||[]);
  const seen=new Set(items.map(row=>row.querySelector('input[data-id]')?.dataset.id));
+ const byId=new Map(episodes.map(e=>[e.id, e]));
+ for(const row of items){const id=row.querySelector('input[data-id]')?.dataset.id;const e=byId.get(id);if(!e)continue;
+  row.querySelector('.air-date').textContent=displayAirDate(e.airdate);
+  const title=row.querySelector('.code')?.nextElementSibling;
+  if(title&&!title.textContent.trim()&&e.title)title.textContent=e.title;
+  row.dataset.search=(row.dataset.search+' '+(e.title||'')+' '+(e.airdate||'')).toLowerCase();
+ }
  const normalize=e=>{const show=({'Chicago Fire':'Fire','Chicago Med':'Med','Chicago P.D.':'P.D.','PD':'P.D.'})[e.show]||e.show;
  const code=e.code||('S'+String(e.season||0).padStart(2,'0')+'E'+String(e.number||0).padStart(2,'0'));
  return {show,code,id:show+' '+code,raw:e};};
