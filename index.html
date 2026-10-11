@@ -1006,7 +1006,7 @@ fetch('./data/episodes.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>{if
  additions.sort((a,b)=>(a.raw.airdate||'').localeCompare(b.raw.airdate||'')||a.show.localeCompare(b.show));
  for(const e of additions){const el=document.createElement('li');el.className='ep';el.dataset.series=e.show;el.dataset.search=(e.show+' '+e.code+' '+(e.raw.title||'')).toLowerCase();
  const abbr=e.show==='Fire'?'CF':e.show==='Med'?'CM':'PD',kind=e.show==='Fire'?'cf':e.show==='Med'?'cm':'pd';
- el.innerHTML='<span class="ord">'+String(items.length+1).padStart(3,'0')+'</span><input type="checkbox" data-id="'+escapeHTML(e.id)+'" aria-label="Watched '+escapeHTML(e.id)+'"><span class="series '+kind+'">'+abbr+'</span><span class="code">'+escapeHTML(e.code)+'</span><span>'+escapeHTML(e.raw.title||'')+'</span>';
+ el.innerHTML='<span class="ord">'+String(items.length+1).padStart(3,'0')+'</span><input type="checkbox" data-id="'+escapeHTML(e.id)+'" aria-label="Watched '+escapeHTML(e.id)+'"><span class="series '+kind+'">'+abbr+'</span><span class="code">'+escapeHTML(e.code)+'</span><span>'+escapeHTML(e.raw.title||'')+'</span><span class="air-date">'+escapeHTML(displayAirDate(e.raw.airdate))+'</span>';
  list.appendChild(el);items.push(el);seen.add(e.id);}
  render();
 }).catch(err=>{console.warn('Historical checklist available; live sync unavailable:',err.message);});
