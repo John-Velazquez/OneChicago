@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:51:23.379265+00:00",
+  "generatedAt": "2026-10-15T15:37:43.706155+00:00",
   "source": "TVmaze",
   "episodes": [
     {
@@ -7840,6 +7840,36 @@
       "title": "Demolition",
       "airdate": "2026-10-07",
       "airstamp": "2026-10-08T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Med S12E02",
+      "show": "Med",
+      "code": "S12E02",
+      "title": "Third Rails",
+      "airdate": "2026-10-14",
+      "airstamp": "2026-10-15T00:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Fire S15E02",
+      "show": "Fire",
+      "code": "S15E02",
+      "title": "Rattle the Cage",
+      "airdate": "2026-10-14",
+      "airstamp": "2026-10-15T01:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "P.D. S14E02",
+      "show": "P.D.",
+      "code": "S14E02",
+      "title": "Don't Blink",
+      "airdate": "2026-10-14",
+      "airstamp": "2026-10-15T02:00:00+00:00",
       "crossover": false,
       "note": ""
     }
