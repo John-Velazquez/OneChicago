@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T17:11:27.506563+00:00",
+  "generatedAt": "2026-10-29T17:27:25.771636+00:00",
   "source": "TVmaze",
   "episodes": [
     {
@@ -7900,6 +7900,36 @@
       "title": "Under the Surface",
       "airdate": "2026-10-21",
       "airstamp": "2026-10-22T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Med S12E04",
+      "show": "Med",
+      "code": "S12E04",
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "airdate": "2026-10-28",
+      "airstamp": "2026-10-29T00:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Fire S15E04",
+      "show": "Fire",
+      "code": "S15E04",
+      "title": "A Perfect Arson",
+      "airdate": "2026-10-28",
+      "airstamp": "2026-10-29T01:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "P.D. S14E04",
+      "show": "P.D.",
+      "code": "S14E04",
+      "title": "My Eye, My Call",
+      "airdate": "2026-10-28",
+      "airstamp": "2026-10-29T02:00:00+00:00",
       "crossover": false,
       "note": ""
     }
