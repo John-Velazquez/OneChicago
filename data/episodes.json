@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T18:40:24.428268+00:00",
+  "generatedAt": "2026-11-05T18:49:39.489658+00:00",
   "source": "TVmaze",
   "episodes": [
     {
@@ -7930,6 +7930,36 @@
       "title": "My Eye, My Call",
       "airdate": "2026-10-28",
       "airstamp": "2026-10-29T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Med S12E05",
+      "show": "Med",
+      "code": "S12E05",
+      "title": "Baptism by Fire",
+      "airdate": "2026-11-04",
+      "airstamp": "2026-11-05T01:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Fire S15E05",
+      "show": "Fire",
+      "code": "S15E05",
+      "title": "Three Hundred",
+      "airdate": "2026-11-04",
+      "airstamp": "2026-11-05T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "P.D. S14E05",
+      "show": "P.D.",
+      "code": "S14E05",
+      "title": "Dark Imaginings",
+      "airdate": "2026-11-04",
+      "airstamp": "2026-11-05T03:00:00+00:00",
       "crossover": false,
       "note": ""
     }
