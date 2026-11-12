@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T18:44:10.813269+00:00",
+  "generatedAt": "2026-11-12T18:58:26.288430+00:00",
   "source": "TVmaze",
   "episodes": [
     {
@@ -7960,6 +7960,36 @@
       "title": "Dark Imaginings",
       "airdate": "2026-11-04",
       "airstamp": "2026-11-05T03:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Med S12E06",
+      "show": "Med",
+      "code": "S12E06",
+      "title": "Lessons in Chemistry",
+      "airdate": "2026-11-11",
+      "airstamp": "2026-11-12T01:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Fire S15E06",
+      "show": "Fire",
+      "code": "S15E06",
+      "title": "Over the Edge",
+      "airdate": "2026-11-11",
+      "airstamp": "2026-11-12T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "P.D. S14E06",
+      "show": "P.D.",
+      "code": "S14E06",
+      "title": "The Thin Grey Line",
+      "airdate": "2026-11-11",
+      "airstamp": "2026-11-12T03:00:00+00:00",
       "crossover": false,
       "note": ""
     }
