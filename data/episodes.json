@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T19:25:37.535141+00:00",
+  "generatedAt": "2026-11-19T19:30:25.805203+00:00",
   "source": "TVmaze",
   "episodes": [
     {
@@ -7990,6 +7990,36 @@
       "title": "The Thin Grey Line",
       "airdate": "2026-11-11",
       "airstamp": "2026-11-12T03:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Med S12E07",
+      "show": "Med",
+      "code": "S12E07",
+      "title": "Borders and Battle Lines",
+      "airdate": "2026-11-18",
+      "airstamp": "2026-11-19T01:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "Fire S15E07",
+      "show": "Fire",
+      "code": "S15E07",
+      "title": "No Love Lost",
+      "airdate": "2026-11-18",
+      "airstamp": "2026-11-19T02:00:00+00:00",
+      "crossover": false,
+      "note": ""
+    },
+    {
+      "id": "P.D. S14E07",
+      "show": "P.D.",
+      "code": "S14E07",
+      "title": "Persons Yet Unknown",
+      "airdate": "2026-11-18",
+      "airstamp": "2026-11-19T03:00:00+00:00",
       "crossover": false,
       "note": ""
     }
